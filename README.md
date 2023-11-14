@@ -1,5 +1,5 @@
 # IMPORTANT
-e
+
 This is a general help for NightHawk pages.  
 
 - Go to settings and configure pages, configure Build and Deployment for "GitHub Actions". IF YOU DO NOT DO THIS YOUR PAGE WILL NOT BUILD.
