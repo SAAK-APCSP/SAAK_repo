@@ -31,6 +31,7 @@ courses: { csp: {week: 13} }
       font-size: 24px;
       border: 1px solid #ccc;
     }
+    @import 'path/to/2048-styles.scss'; // Adjust the path accordingly
   </style>
   <title>2048 Game</title>
 </head>
