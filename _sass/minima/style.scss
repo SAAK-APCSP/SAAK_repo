@@ -1,0 +1,51 @@
+// style.scss
+
+$body-background-color: #171515;
+$body-text-color: #ffffff;
+$fade-in-duration: 3s;
+
+body {
+  background-color: $body-background-color;
+  color: $body-text-color;
+  animation: fadeInAnimation ease $fade-in-duration;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.75;
+  }
+}
+
+$h1-color: rgb(0, 255, 255);
+$h1-font-size: 3rem;
+$h1-font-family: Monospace;
+
+h1 {
+  position: relative;
+  color: $h1-color;
+  font-size: $h1-font-size;
+  font-family: $h1-font-family;
+}
+
+p {
+  font-family: Monospace;
+}
+
+.sprite {
+  $sprite-size: 256px;
+  height: $sprite-size;
+  width: $sprite-size;
+  background-image: url('/images/mario_animation.png');
+  background-repeat: no-repeat;
+}
+
+#mario {
+  $mario-col: #{animations[0].col};
+  $mario-row: #{animations[0].row};
+  background-position: calc(#{$mario-col} * #{$sprite-size} * -1px) calc(#{$mario-row} * #{$sprite-size} * -1px);
+}
