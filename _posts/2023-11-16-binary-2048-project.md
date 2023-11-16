@@ -100,7 +100,7 @@ courses: { csp: {week: 13} }
             }
             if (k > 0 && grid[k - 1][j] === grid[k][j]) {
               // Merge tiles
-              grid[k - 1][j] *= 2;
+              grid[k - 1][j] = grid[k - 1][j] << 1;
               grid[k][j] = 0;
               score += grid[k - 1][j];
               moved = true;
@@ -129,7 +129,7 @@ courses: { csp: {week: 13} }
             }
             if (k < gridSize - 1 && grid[k + 1][j] === grid[k][j]) {
               // Merge tiles
-              grid[k + 1][j] *= 2;
+              grid[k + 1][j] = grid[k + 1][j] << 1;
               grid[k][j] = 0;
               score += grid[k + 1][j];
               moved = true;
@@ -155,10 +155,10 @@ courses: { csp: {week: 13} }
               grid[i][k] = 0;
               k--;
               moved = true;
-            }
+            } 
             if (k > 0 && grid[i][k - 1] === grid[i][k]) {
               // Merge tiles
-              grid[i][k - 1] *= 2;
+              grid[i][k - 1] = grid[i][k - 1] << 1;
               grid[i][k] = 0;
               score += grid[i][k - 1];
               moved = true;
@@ -187,7 +187,7 @@ courses: { csp: {week: 13} }
             }
             if (k < gridSize - 1 && grid[i][k + 1] === grid[i][k]) {
               // Merge tiles
-              grid[i][k + 1] *= 2;
+              grid[i][k + 1] = grid[i][k + 1] << 1;
               grid[i][k] = 0;
               score += grid[i][k + 1];
               moved = true;
