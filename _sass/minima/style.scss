@@ -45,7 +45,7 @@ p {
 }
 
 #mario {
-  $mario-col: #{animations[0].col};
-  $mario-row: #{animations[0].row};
-  background-position: calc(#{$mario-col} * #{$sprite-size} * -1px) calc(#{$mario-row} * #{$sprite-size} * -1px);
+  $mario-col: $sprite-size; // Assuming animations is an array with the size
+  $mario-row: $sprite-size; // Assuming animations is an array with the size
+  background-position: calc(#{$mario-col} * -1px) calc(#{$mario-row} * -1px);
 }
