@@ -35,17 +35,3 @@ h1 {
 p {
   font-family: Monospace;
 }
-
-.sprite {
-  $sprite-size: 256px;
-  height: $sprite-size;
-  width: $sprite-size;
-  background-image: url('/images/mario_animation.png');
-  background-repeat: no-repeat;
-}
-
-#mario {
-  $mario-col: $sprite-size; // Assuming animations is an array with the size
-  $mario-row: $sprite-size; // Assuming animations is an array with the size
-  background-position: calc(#{$mario-col} * -1px) calc(#{$mario-row} * -1px);
-}
