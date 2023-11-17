@@ -14,6 +14,7 @@ courses: { csp: {week: 13} }
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    @import 'SAAK_repo/_sass/minima/custom-styles';
     body {
       font-family: Arial, sans-serif;
     }
@@ -31,7 +32,6 @@ courses: { csp: {week: 13} }
       font-size: 24px;
       border: 1px solid #ccc;
     }
-    @import 'path/to/2048-styles.scss'; // Adjust the path accordingly
   </style>
   <title>2048 Game</title>
 </head>
