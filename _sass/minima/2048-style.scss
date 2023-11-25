@@ -1,15 +1,19 @@
-// 2048-styles.scss
-
 // Variables
 $edge-color: #4CAF50; // Green color
 $center-color: #2E7D32; // Darker green color
 
+// Base styles for the grid container
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 100px);
   grid-gap: 10px;
   margin: 20px;
   position: relative;
+  overflow: hidden; // Hide the overflow to prevent the ring light from extending beyond the grid
+  border-radius: 10px; // Adjust border radius as needed
+  width: fit-content; // Set width to fit the content (2048 grid)
+  background-color: #000; // Set background color to match the body background color
+  box-shadow: 0 0 15px $center-color, 0 0 30px $center-color, 0 0 45px $center-color, 0 0 60px $center-color inset;
 }
 
 .grid-item {
@@ -20,23 +24,102 @@ $center-color: #2E7D32; // Darker green color
   font-size: 24px;
   position: relative;
   z-index: 1;
+  border-radius: 10px; // Adjust border radius to match grid container
 
-  // Gradient border
-  &:before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    z-index: -1;
-    background: linear-gradient(to bottom, $edge-color, $center-color, $center-color, $edge-color);
-    border-radius: 5px; // Adjust border radius as needed
-  }
+  // Background for each square
+  background-color: #000; // Set background color to match the body background color
 }
 
 #score {
   color: white;
   font-size: 20px;
   margin: 10px;
+}
+
+.grid-item {
+  // ... (existing styles)
+
+  &.number-color-2 {
+    color: #F44336; // Red color
+  }
+
+  &.number-color-4 {
+    color: #9C27B0; // Purple color
+  }
+
+  &.number-color-8 {
+    color: #2196F3; // Blue color
+  }
+  &.number-color-16 {
+    color: rgb(0, 158, 71); // Blue color
+  }
+  &.number-color-32 {
+    color: rgb(255, 0, 247); // Blue color
+  }
+  &.number-color-64 {
+    color: rgb(0, 5, 158); // Blue color
+  }
+  &.number-color-128 {
+    color: rgb(234, 255, 0); // Blue color
+  }
+  &.number-color-256 {
+    color: rgb(140, 255, 192); // Blue color
+  }
+  &.number-color-512 {
+    color: rgb(144, 65, 0); // Blue color
+   }
+  &.number-color-1024 {
+    color: rgb(172, 172, 172); // Blue color
+  }
+  &.number-color-2048 {
+    color: rgb(228, 182, 0); // Blue color
+  }
+
+
+
+
+
+  // Add more color classes as needed
+  // .number-color-16 { color: ... }
+  // .number-color-32 { color: ... }
+  // ...
+
+
+}
+
+
+
+
+// Animation for the ring light effect
+// @keyframes ring-light {
+//   0%, 100% {
+//     box-shadow: inset 0 0 15px $center-color, inset 0 0 30px $center-color, inset 0 0 45px $center-color, inset 0 0 60px $center-color;
+//   }
+//   25% {
+//     box-shadow: inset 0 0 20px #F44336, inset 0 0 35px $center-color, inset 0 0 45px #2196F3;
+//   }
+//   50% {
+//     box-shadow: inset 0 0 25px #2196F3, inset 0 0 30px #F44336, inset 0 0 45px $center-color;
+//   }
+//   75% {
+//     box-shadow: inset 0 0 20px $center-color, inset 0 0 35px #2196F3, inset 0 0 45px #F44336;
+//   }
+// }
+
+@keyframes colorChange {
+  0% {
+    background-color: rgb(255, 0, 0); // Start color (red)
+  }
+  50% {
+    background-color: rgb(0, 255, 0); // Middle color (green)
+  }
+  100% {
+    background-color: rgb(0, 0, 255); // End color (blue)
+  }
+}
+
+.element-to-animate {
+  width: 100px;
+  height: 100px;
+  animation: colorChange 3s ease-in-out infinite;
 }

@@ -32,6 +32,9 @@ courses: { csp: {week: 13} }
       font-size: 24px;
       border: 1px solid #ccc;
     }
+    .number-color-2048 {
+    color: #ff9800; /* Choose your desired color */
+  }
   </style>
   <title>2048 Game</title>
 </head>
@@ -70,19 +73,49 @@ courses: { csp: {week: 13} }
     }
 
     // Update the UI based on the grid state
-    function updateUI() {
-      gridContainer.innerHTML = '';
-      for (let i = 0; i < gridSize; i++) {
-        for (let j = 0; j < gridSize; j++) {
-          const value = grid[i][j];
-          const gridItem = document.createElement('div');
-          gridItem.classList.add('grid-item');
-          gridItem.textContent = value === 0 ? '' : value;
-          gridContainer.appendChild(gridItem);
-        }
+    // function updateUI() {
+    //   gridContainer.innerHTML = '';
+    //   for (let i = 0; i < gridSize; i++) {
+    //     for (let j = 0; j < gridSize; j++) {
+    //       const value = grid[i][j];
+    //       const gridItem = document.createElement('div');
+    //       gridItem.classList.add('grid-item');
+    //       gridItem.textContent = value === 0 ? '' : value;
+    //       gridContainer.appendChild(gridItem);
+    //     }
+    //   }
+    //   scoreElement.textContent = `Score: ${score}`;
+    // }
+
+    // Update the UI based on the grid state
+ function updateUI() {
+    gridContainer.innerHTML = '';
+    for (let i = 0; i < gridSize; i++) {
+      for (let j = 0; j < gridSize; j++) {
+        const value = grid[i][j];
+        const gridItem = document.createElement('div');
+        gridItem.classList.add('grid-item');
+        gridItem.classList.add(`number-color-${value}`); // Add color class based on value
+        gridItem.textContent = value === 0 ? '' : value;
+        gridContainer.appendChild(gridItem);
       }
-      scoreElement.textContent = `Score: ${score}`;
     }
+    scoreElement.textContent = `Score: ${score}`;
+  }
+
+
+function restartGame() {
+  // Reset the grid and score
+  grid = Array.from({ length: gridSize }, () => Array(gridSize).fill(0));
+  score = 0;
+  // Add initial tiles
+  addRandomTile();
+  addRandomTile();
+  // Update the UI
+  updateUI();
+}
+
+// Function to get background color based on value
 
     // Move tiles up
     function moveUp() {
@@ -250,11 +283,15 @@ courses: { csp: {week: 13} }
       }
     });
 
+    
+
     // Initial setup
     addRandomTile();
     addRandomTile();
     updateUI();
   });
+
+  
 </script>
 
 </body>
