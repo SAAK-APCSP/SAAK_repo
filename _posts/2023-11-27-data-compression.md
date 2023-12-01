@@ -16,56 +16,66 @@ courses: { csp: {week: 13} }
 <body>
 <input type='file' onchange="readFile(this);" />
 <script>
-  function toDataURL(input, callback) {
+  function toBinary(input, callback) {
     if (typeof input === 'string') {
       // If input is a URL
       var xhr = new XMLHttpRequest();
       xhr.onload = function() {
         var reader = new FileReader();
         reader.onloadend = function() {
-          callback(reader.result);
+          // Convert binary string to ArrayBuffer
+          var binaryData = new Uint8Array(Array.from(reader.result)).buffer;
+          callback(binaryData);
         };
-        reader.readAsDataURL(xhr.response);
+        xhr.open('GET', input);
+        xhr.responseType = 'arraybuffer';
+        xhr.send();
       };
-      xhr.open('GET', input);
-      xhr.responseType = 'blob';
-      xhr.send();
     } else if (input instanceof File) {
       // If input is a File
       var reader = new FileReader();
       reader.onloadend = function() {
-        callback(reader.result);
+        // Convert binary string to ArrayBuffer
+        var binaryData = new Uint8Array(Array.from(reader.result)).buffer;
+        callback(binaryData);
       };
-      reader.readAsDataURL(input);
+      reader.readAsArrayBuffer(input);
     }
   }
+
   function readFile(inputElement) {
     var file = inputElement.files[0];
     if (file) {
-      toDataURL(file, function(dataUrl) {
-        console.log('File to Data URL:', dataUrl);
-        // Use dataUrl as the original data
-        let originalData = dataUrl.split(',')[1];
+      toBinary(file, function(binaryData) {
+        console.log('File as Binary Data:', binaryData);
+        // Use binaryData as the original data
+        let originalData = binaryData;
         let compressedData = compress(originalData);
         console.log("Original data:", originalData);
         console.log("Compressed data:", compressedData);
       });
     }
   }
-  function compress(inputString) {
+
+  function compress(inputData) {
     let compressedData = "";
     let count = 1;
-    // Iterate through the input string
-    for (let i = 1; i < inputString.length; i++) {
-      if (inputString[i] === inputString[i - 1]) {
+
+    // Convert binary data to array of integers
+    let inputArray = new Uint8Array(inputData);
+
+    // Iterate through the input array
+    for (let i = 1; i < inputArray.length; i++) {
+      if (inputArray[i] === inputArray[i - 1]) {
         count++;
       } else {
-        compressedData += inputString[i - 1] + count;
+        compressedData += inputArray[i - 1] + count + ",";
         count = 1;
       }
     }
-    // Add the last character and its count
-    compressedData += inputString.slice(-1) + count;
+
+    // Add the last element and its count
+    compressedData += inputArray.slice(-1)[0] + count;
     return compressedData;
   }
 </script>
