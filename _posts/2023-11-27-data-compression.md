@@ -61,12 +61,17 @@ courses: { csp: {week: 13} }
       if (inputData[i] === inputData[i - 1]) {
         count++;
       } else {
-        compressedData += String(count) + inputData[i - 1] + ",";
+        // Convert the binary value to its binary representation
+        const binaryValue = inputData[i - 1].toString(2);
+        // Add the count and binary value to the compressed data
+        compressedData += String(count) + "|" + binaryValue + ",";
         count = 1;
       }
     }
-    // Add the last element and its count
-    compressedData += inputData[inputData.length - 1] + count;
+    // Convert the last binary value to its binary representation
+    const lastBinaryValue = inputData[inputData.length - 1].toString(2);
+    // Add the last count and binary value
+    compressedData += String(count) + "|" + lastBinaryValue;
     return compressedData;
   }
 </script>
