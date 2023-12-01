@@ -23,8 +23,8 @@ courses: { csp: {week: 13} }
       xhr.onload = function() {
         var reader = new FileReader();
         reader.onloadend = function() {
-          // Convert binary string to ArrayBuffer
-          var binaryData = new Uint8Array(Array.from(reader.result)).buffer;
+          // Convert binary string to Uint8Array
+          var binaryData = new Uint8Array(reader.result);
           callback(binaryData);
         };
         xhr.open('GET', input);
@@ -35,47 +35,38 @@ courses: { csp: {week: 13} }
       // If input is a File
       var reader = new FileReader();
       reader.onloadend = function() {
-        // Convert binary string to ArrayBuffer
-        var binaryData = new Uint8Array(Array.from(reader.result)).buffer;
+        // Convert binary string to Uint8Array
+        var binaryData = new Uint8Array(reader.result);
         callback(binaryData);
       };
       reader.readAsArrayBuffer(input);
     }
   }
-
   function readFile(inputElement) {
     var file = inputElement.files[0];
     if (file) {
       toBinary(file, function(binaryData) {
         console.log('File as Binary Data:', binaryData);
         // Use binaryData as the original data
-        let originalData = binaryData;
-        let compressedData = compress(originalData);
-        console.log("Original data:", originalData);
+        let compressedData = compress(binaryData);
         console.log("Compressed data:", compressedData);
       });
     }
   }
-
   function compress(inputData) {
     let compressedData = "";
     let count = 1;
-
-    // Convert binary data to array of integers
-    let inputArray = new Uint8Array(inputData);
-
     // Iterate through the input array
-    for (let i = 1; i < inputArray.length; i++) {
-      if (inputArray[i] === inputArray[i - 1]) {
+    for (let i = 1; i < inputData.length; i++) {
+      if (inputData[i] === inputData[i - 1]) {
         count++;
       } else {
-        compressedData += inputArray[i - 1] + count + ",";
+        compressedData += String(count) + inputData[i - 1] + ",";
         count = 1;
       }
     }
-
     // Add the last element and its count
-    compressedData += inputArray.slice(-1)[0] + count;
+    compressedData += inputData[inputData.length - 1] + count;
     return compressedData;
   }
 </script>
