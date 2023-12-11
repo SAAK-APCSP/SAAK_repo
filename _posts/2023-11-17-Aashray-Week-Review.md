@@ -1,6 +1,6 @@
 ---
 toc: false
-comments: false
+comments: true
 layout: post
 title: Week Review
 description: :D
@@ -13,6 +13,8 @@ Using ChatGPT, we were able to create a funcitonal 2048 game.
 1. Binary Shifting - We stored numbers in binary and used Javascript Binary Shifting (e.g. <<) to handle the powers of two.
 2. By using for loops, we can iterate through all the rows and columns in the game board and update based on the inputs
 3. Using functions, the different results of each input key can be emulated
+
+See video
 
 ### Styling
 Using .scss files, we were able to customize different aspects of the style
