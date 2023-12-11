@@ -14,8 +14,11 @@ courses: { csp: {week: 13} }
   <title>Run-Length Encoding (RLE) Compression</title>
 </head>
 <body>
+
 <input type='file' onchange="readFile(this);" />
+
 <script>
+
   function toBinary(input, callback) {
     if (typeof input === 'string') {
       // If input is a URL
@@ -42,17 +45,8 @@ courses: { csp: {week: 13} }
       reader.readAsArrayBuffer(input);
     }
   }
-  function readFile(inputElement) {
-    var file = inputElement.files[0];
-    if (file) {
-      toBinary(file, function(binaryData) {
-        console.log('File as Binary Data:', binaryData);
-        // Use binaryData as the original data
-        let compressedData = compress(binaryData);
-        console.log("Compressed data:", compressedData);
-      });
-    }
-  }
+
+
   function compress(inputData) {
     let compressedData = "";
     let count = 1;
@@ -73,6 +67,18 @@ courses: { csp: {week: 13} }
     // Add the last count and binary value
     compressedData += String(count) + "|" + lastBinaryValue;
     return compressedData;
+  }
+
+    function readFile(inputElement) {
+    var file = inputElement.files[0];
+    if (file) {
+      toBinary(file, function(binaryData) {
+        console.log('File as Binary Data:', binaryData);
+        // Use binaryData as the original data
+        let compressedData = compress(binaryData);
+        console.log("Compressed data:", compressedData);
+      });
+    }
   }
 </script>
 </body>
