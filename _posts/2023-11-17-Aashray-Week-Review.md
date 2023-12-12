@@ -76,20 +76,6 @@ In summary, the 2048 game implemented in this code combines the binary concept o
 
 
 
-
-
-
----
-toc: false
-comments: false
-layout: post
-title: Binary 2048 Project
-description: :D
-type: ccc
-courses: { csp: {week: 13} }
----
-
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
