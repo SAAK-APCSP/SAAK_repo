@@ -73,6 +73,7 @@ We will have a front page that has 2 main features: Post and Direct Messaging. T
 3. **Posting:**
    - Send out a post that everyone else can see
    - Use databases to store each post (Size of each post should be negligble as storing text takes very little space)
+   - ![Posting Concept Design](https://file%252B.vscode-resource.vscode-cdn.net/Users/Akhil/vscode/SAAK_repo/images/image.png?version%253D1705081160264)
 
 4. **Likes:**
    - Allow users to be able to like posts
