@@ -18,9 +18,7 @@ courses: { csp: {week: 16} }
 **Code Review: Social Media/Blog Page with Login System**
 
 **Overview:**
-The code implements a social media/blog page with a login system, adhering to the College Board CPT guidelines. The project encourages collaboration, ethical coding practices, and skill development among students.
-
-![CPT Login Image](https://files.slack.com/files-tmb/TUDAF53UJ-F06DS69FHN0-54a7335b5c/image_720.png)
+We will have a front page that has 2 main features: Post and Direct Messaging. The post feature will put out a post onto a main page that everyone else can see. Meanwhile, the direct messaging feature will send a message directly to someone else. 
 
 
 **Strengths:**
@@ -57,14 +55,31 @@ The code implements a social media/blog page with a login system, adhering to th
 9. **Skill Development Emphasis:**
    - The end goal of developing high skills in language, process, and procedure for College Board standards is clearly communicated.
 
-**New Concepts:**
+**Features:**
+1. **Sign Up / Log in:**
+   - Users can create unique accounts for themselves
+     - Accounts have usernames/passwords
+     - Their username will be the main method of identification
+   - Users can log in whenever they want
+     - Use indexing to verify the username/password combo
+     - Use a .CSV file to store the account info
+   - Concept Page:
+   - ![CPT Login Image](https://files.slack.com/files-tmb/TUDAF53UJ-F06DS69FHN0-54a7335b5c/image_720.png)
+  
+2. **Direct Messaging:**
+   - Allow users to search up users by username and send messages to them
+   - Only the sender and the reciever can see the messages
 
-1. **Documentation:**
-   - Encourage more comprehensive documentation, including inline comments, to aid understanding for both team members and potential reviewers.
+3. **Posting:**
+   - Send out a post that everyone else can see
+   - Use databases to store each post (Size of each post should be negligble as storing text takes very little space)
 
-2. **Security Measures:**
-   - Ensure robust security measures for user authentication and data protection, considering best practices for web application security.
+4. **Likes:**
+   - Allow users to be able to like posts
+   - Store the amount of likes as metadata to the post
 
-3. **Scalability Consideration:**
-   - Address considerations for scalability to accommodate potential future enhancements and increased user loads.
+5. **Comment:**
+   - Allow users to comment onto posts
+   - The comment will be stored/displayed under the post it was commented under
+
 
