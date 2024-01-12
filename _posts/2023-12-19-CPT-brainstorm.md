@@ -54,7 +54,7 @@ The code implements a social media/blog page with a login system, adhering to th
 9. **Skill Development Emphasis:**
    - The end goal of developing high skills in language, process, and procedure for College Board standards is clearly communicated.
 
-**Areas for Improvement:**
+**New Concepts:**
 
 1. **Documentation:**
    - Encourage more comprehensive documentation, including inline comments, to aid understanding for both team members and potential reviewers.
