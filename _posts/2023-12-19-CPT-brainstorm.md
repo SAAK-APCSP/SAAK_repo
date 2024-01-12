@@ -20,6 +20,9 @@ courses: { csp: {week: 16} }
 **Overview:**
 The code implements a social media/blog page with a login system, adhering to the College Board CPT guidelines. The project encourages collaboration, ethical coding practices, and skill development among students.
 
+![CPT Login Image](https://files.slack.com/files-tmb/TUDAF53UJ-F06DS69FHN0-54a7335b5c/image_720.png)
+
+
 **Strengths:**
 
 1. **Team Collaboration:**
