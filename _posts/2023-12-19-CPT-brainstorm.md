@@ -83,4 +83,5 @@ We will have a front page that has 2 main features: Post and Direct Messaging. T
    - Allow users to comment onto posts
    - The comment will be stored/displayed under the post it was commented under
 
-
+**UML Drawings**
+![UML Class interactions](/SAAK_repo/images/UML%2520Class%2520diagram.png)
