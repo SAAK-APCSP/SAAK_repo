@@ -13,8 +13,6 @@ courses: { csp: {week: 16} }
 - Database information storage
 - Main Idea
 
-Certainly! Here's a review for a code that implements a social media/blog page with a login system, based on the provided guidelines:
-
 ---
 
 **Code Review: Social Media/Blog Page with Login System**
