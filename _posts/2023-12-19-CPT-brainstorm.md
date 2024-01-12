@@ -64,7 +64,7 @@ We will have a front page that has 2 main features: Post and Direct Messaging. T
      - Use indexing to verify the username/password combo
      - Use a .CSV file to store the account info
    - Concept Page:
-   - ![CPT Login Image](https://files.slack.com/files-tmb/TUDAF53UJ-F06DS69FHN0-54a7335b5c/image_720.png)
+   - ![CPT Login Image](/SAAK_repo/images/image_720.png)
   
 2. **Direct Messaging:**
    - Allow users to search up users by username and send messages to them
